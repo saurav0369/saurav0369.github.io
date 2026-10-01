@@ -1,0 +1,119 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Why Prediction Is Not Enough for Decisions Under Hidden Rules — Saurav Sharma</title>
+<meta name="description" content="Research note on prediction, mechanism identification, consequential information acquisition, and decision reliability.">
+<meta name="author" content="Saurav Sharma">
+<meta property="og:type" content="article">
+<meta property="og:site_name" content="Saurav Sharma — Independent Researcher">
+<meta property="og:title" content="Why Prediction Is Not Enough for Decisions Under Hidden Rules — Saurav Sharma">
+<meta property="og:description" content="Research note on prediction, mechanism identification, consequential information acquisition, and decision reliability.">
+<meta property="og:image" content="https://saurav0369.github.io/assets/og.png">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta property="og:locale" content="en_US">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Why Prediction Is Not Enough for Decisions Under Hidden Rules — Saurav Sharma">
+<meta name="twitter:description" content="Research note on prediction, mechanism identification, consequential information acquisition, and decision reliability.">
+<meta name="twitter:image" content="https://saurav0369.github.io/assets/og.png">
+
+<link rel="canonical" href="https://saurav0369.github.io/writing/why-prediction-is-not-enough.html"><meta property="og:url" content="https://saurav0369.github.io/writing/why-prediction-is-not-enough.html">
+<meta name="theme-color" content="#f4f2ed" media="(prefers-color-scheme: light)">
+<meta name="theme-color" content="#0c0d0f" media="(prefers-color-scheme: dark)">
+<link rel="icon" href="../assets/favicon.svg" type="image/svg+xml">
+<link rel="preload" href="../assets/fonts/newsreader-latin-opsz-normal.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="preload" href="../assets/fonts/inter-latin-opsz-normal.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="stylesheet" href="../assets/styles.css">
+<script>(function(){try{var t=localStorage.getItem('theme');if(!t)t=matchMedia('(prefers-color-scheme: dark)').matches?'dark':'light';document.documentElement.dataset.theme=t}catch(e){}})();</script>
+</head>
+<body>
+<a class="skip" href="#main">Skip to content</a>
+<div class="progress" aria-hidden="true"></div>
+<header class="site-header">
+<div class="wrap nav">
+<a class="brand" href="../index.html"><span class="brand-name">Saurav Sharma</span><span class="brand-role">Independent Researcher</span></a>
+<nav class="nav-links" id="nav-links" aria-label="Primary"><a href="../research/index.html">Research</a><a href="../manuscripts.html">Manuscripts</a><a href="../evidence.html">Evidence</a><a href="../writing/index.html" aria-current="page">Writing</a><a href="../about.html">About</a></nav>
+<div class="nav-tools">
+<button class="icon-btn" type="button" data-theme-toggle aria-label="Toggle dark theme"><svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.4"><circle cx="8" cy="8" r="5.5"/><path d="M8 2.5a5.5 5.5 0 0 0 0 11z" fill="currentColor"/></svg></button>
+<button class="icon-btn menu-btn" type="button" data-menu aria-expanded="false" aria-controls="nav-links" aria-label="Menu"><svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.4"><path d="M2 5h12M2 11h12"/></svg></button>
+</div>
+</div>
+</header>
+<main id="main">
+<div class="wrap">
+<article class="essay">
+<nav class="crumbs" aria-label="Breadcrumb"><a href="../index.html">Home</a><span aria-hidden="true">/</span><a href="index.html">Writing</a><span aria-hidden="true">/</span><span>Why Prediction Is Not Enough</span></nav>
+<div class="eyebrow" data-reveal>Research note</div>
+<h1 data-split>Why Prediction Is Not Enough for Decisions Under Hidden Rules</h1>
+<p class="lede" data-reveal style="--rd:.3s">A system can be excellent at predicting outcomes inside the wrong model of the world. In consequential decisions, that distinction matters.</p>
+<div class="byline"><span>Saurav Sharma</span><span>Research note · 2026</span></div>
+<p class="dropcap">I started from a practical problem: build agents that make economic decisions rather than merely describe them. The first surprise was that better model reasoning did not reliably remove the failures I cared about. In some environments, a system could explain the relevant rule once it was made explicit and still fail when it had to determine which rule governed the decision before acting.</p>
+<p>That pushed the research away from a simple “make the model smarter” framing. The recurring issue looked more structural. A decision can depend on at least four different questions: what the current state is, which mechanism governs its evolution, whether the available evidence supports that mechanism in the region the plan will visit, and what happens in rare or adversarial states that average-case prediction barely sees.</p>
+<h2>Prediction and identification are different operations</h2>
+<p>Suppose two economic mechanisms generate similar observations over the data seen so far but imply different feasible actions once a covenant, cash threshold, or rare transition becomes active. A predictor can fit the observed outcomes well without resolving the distinction that actually controls the decision. More samples help only if they contain information that separates the mechanisms.</p>
+<figure class="figure" data-reveal style="margin:36px 0">
+<div class="figure-head"><span>Fig. — Prediction vs. identification</span><span class="live">Schematic</span></div>
+<div class="figure-body"><svg class="dg" viewBox="0 0 560 400" role="img" aria-labelledby="hero-t hero-d">
+<title id="hero-t">Schematic: two mechanisms agree on observed data and diverge in the decision region</title>
+<desc id="hero-d">Data points follow a single curve in the observed region. Beyond it, mechanism A rises while mechanism B falls through a feasibility boundary.</desc>
+<defs><pattern id="h-hero" width="8" height="8" patternUnits="userSpaceOnUse" patternTransform="rotate(45)"><line x1="0" y1="0" x2="0" y2="8" style="stroke:var(--accent);stroke-opacity:.18;stroke-width:1"/></pattern></defs>
+<g class="grid"><line x1="50" x2="535" y1="60" y2="60"/><line x1="50" x2="535" y1="120" y2="120"/><line x1="50" x2="535" y1="180" y2="180"/><line x1="50" x2="535" y1="240" y2="240"/><line x1="50" x2="535" y1="300" y2="300"/></g>
+<rect x="50" y="40" width="250" height="310" fill="url(#h-hero)" class="fade" style="--d:.05s"/>
+<line class="ax" x1="50" y1="350" x2="535" y2="350"/><line class="ax" x1="50" y1="40" x2="50" y2="350"/>
+<line class="ax dash" x1="300" y1="40" x2="300" y2="350"/>
+<text x="60" y="30">OBSERVED SO FAR</text><text x="310" y="30">WHERE THE ACTION IS TAKEN</text>
+<line class="s-acc dash fade" style="--d:1.6s" x1="50" y1="268" x2="535" y2="268"/>
+<text class="t-acc fade" style="--d:1.7s" x="438" y="284" text-anchor="end">FEASIBILITY BOUNDARY</text>
+<circle class="pop f-ink" style="--d:0.15s" cx="69.6" cy="303.6" r="2.6"/><circle class="pop f-ink" style="--d:0.22s" cx="88.1" cy="287.0" r="2.6"/><circle class="pop f-ink" style="--d:0.29s" cx="106.6" cy="288.2" r="2.6"/><circle class="pop f-ink" style="--d:0.36s" cx="125.0" cy="270.2" r="2.6"/><circle class="pop f-ink" style="--d:0.43s" cx="143.5" cy="273.3" r="2.6"/><circle class="pop f-ink" style="--d:0.50s" cx="162.0" cy="255.6" r="2.6"/><circle class="pop f-ink" style="--d:0.57s" cx="180.5" cy="255.2" r="2.6"/><circle class="pop f-ink" style="--d:0.64s" cx="199.0" cy="233.4" r="2.6"/><circle class="pop f-ink" style="--d:0.71s" cx="217.4" cy="228.2" r="2.6"/><circle class="pop f-ink" style="--d:0.78s" cx="235.9" cy="208.8" r="2.6"/><circle class="pop f-ink" style="--d:0.85s" cx="254.4" cy="207.4" r="2.6"/><circle class="pop f-ink" style="--d:0.92s" cx="272.9" cy="190.0" r="2.6"/><circle class="pop f-ink" style="--d:0.99s" cx="291.4" cy="187.0" r="2.6"/>
+<path class="s-ink draw" style="--d:.2s" pathLength="1" d="M60 300 C 140 282, 220 222, 300 176"/>
+<path id="mechB" class="s-ink draw" style="--d:1.25s" pathLength="1" d="M300 176 C 372 158, 432 232, 525 332"/>
+<path class="s-mut draw" style="--d:1.25s" pathLength="1" d="M300 176 C 370 140, 440 102, 525 72"/>
+<text class="t-serif fade" style="--d:2.2s" x="440" y="70">Mechanism A</text>
+<text class="t-serif fade" style="--d:2.2s" x="420" y="342">Mechanism B</text>
+<circle class="f-acc pulse" style="--d:2.6s" cx="465.6" cy="268.0" r="7" opacity="0"/>
+<circle class="f-acc pop" style="--d:2.4s" cx="465.6" cy="268.0" r="4.5"/>
+<text class="t-acc fade" style="--d:2.5s" x="451.6" y="302.0" text-anchor="end">action infeasible under B</text>
+<circle r="4" class="f-bg" style="stroke:var(--ink);stroke-width:1.5" opacity="0"><animate attributeName="opacity" values="0;1;1;0" keyTimes="0;.08;.92;1" dur="7s" begin="3s" repeatCount="indefinite"/><animateMotion dur="7s" begin="3s" repeatCount="indefinite" path="M60 300 C 140 282, 220 222, 300 176 C 372 158, 432 232, 525 332"/></circle>
+<text x="535" y="370" text-anchor="end">STATE / EXPOSURE →</text>
+</svg></div>
+<figcaption><b>Schematic</b>Two mechanisms agree on the data seen so far and diverge where the action is taken. Illustrative, not experimental data.</figcaption>
+</figure>
+<p>This is why some controlled hidden-rule experiments remained difficult for outcome learners even when the rule-conditioned action itself was easy. Once the governing rule was revealed, the comparison model often knew what to do. The failure occurred earlier: identifying which structure should govern the action.</p>
+<h2>Information acquisition can change the world</h2>
+<p>The same distinction appears in a different form when an agent seeks more information. A standard abstraction treats sensing as something that improves the belief state, perhaps at a cost. But in many economic systems an inquiry is an intervention. Requesting a quote can reveal intent. Asking a counterparty a question can change behavior. A diagnostic action can consume a resource or remove a later option.</p>
+<p>Then “more information” is not a free refinement of the same decision problem. The acquisition action can create a new decision problem. That motivates the work on <a class="inline-link" href="../research/rec.html">premature epistemic action</a> and <a class="inline-link" href="../research/microstructure.html">endogenous value of information</a>.</p>
+<h2>Constraint geometry matters more than average model error</h2>
+<p><a class="inline-link" href="../research/private-credit.html">Private-credit stress tests</a> produced another version of the same lesson. A model can be imperfect in many ways without changing the decision. The error becomes critical when it moves a boundary the chosen policy actually reaches. The interesting quantity is therefore not generic model error but whether the error changes the feasible set along the policy trajectory.</p>
+<h2>Rare events create a related evaluation problem</h2>
+<p>Average-case performance can hide the regimes that dominate economic value. As catastrophic transitions become rarer, an outcome learner may see less direct evidence of the event even while the structural consequence remains decisive.</p>
+<h2>What I currently believe</h2>
+<p>I do not think the evidence justifies a sweeping claim that prediction is unimportant or that one architecture solves decision-making generally. The narrower thesis is that some consequential decision problems require explicit work above prediction: identifying governing structure, establishing support, stress-testing relevant regimes, planning under the resulting model, and verifying execution against the authoritative environment.</p>
+<p>That thesis connects the current research lines. Premature epistemic action studies when an information-seeking action should be delayed. The RFQ work studies when passive value-of-information is the wrong abstraction because inquiry changes downstream values. The private-credit work studies when representation error becomes consequential because it moves a reached feasibility boundary. The broader <a class="inline-link" href="../research/aei.html">AEI program</a> asks whether these recurring patterns can be turned into a more reliable decision architecture.</p>
+<h2>What would change my mind</h2>
+<p>The strongest next evidence would not be another hand-designed success. It would be an externally specified evaluation where the governing mechanisms, world families, and scoring are fixed independently, then tested across model providers and with enough real or semi-real structure to make overfitting difficult. If a simpler predictive or generic planning baseline matches the structural methods under those conditions, the broader architectural thesis should shrink accordingly.</p>
+<nav class="pager" aria-label="Writing navigation" style="margin-top:56px"><a href="index.html"><span class="mono">← All notes</span><span class="t">Research notes</span></a><a href="../evidence.html"><span class="mono">Related</span><span class="t">Evidence ledger</span></a></nav>
+</article>
+</div>
+
+</main>
+<footer class="site-footer">
+<div class="wrap">
+<div class="footer-grid">
+<div><span class="brand-name">Saurav Sharma</span><p class="footer-note">Independent Researcher &amp; Technical Builder. Education: BS student, IIT Madras.</p></div>
+<div><span class="mono">Research</span><ul>
+<li><a href="../research/rec.html">Premature Epistemic Action</a></li>
+<li><a href="../research/microstructure.html">Information Acquisition &amp; the Market</a></li>
+<li><a href="../research/private-credit.html">Model Error &amp; the Boundary</a></li>
+<li><a href="../research/aei.html">Autonomous Economic Intelligence</a></li></ul></div>
+<div><span class="mono">Site</span><ul>
+<li><a href="../manuscripts.html">Manuscripts</a></li><li><a href="../evidence.html">Evidence ledger</a></li>
+<li><a href="../writing/index.html">Writing</a></li><li><a href="../about.html">About</a></li></ul></div>
+</div>
+<div class="footer-base"><span>© <span data-year>2026</span> Saurav Sharma</span><span>Independent research</span></div>
+</div>
+</footer>
+<script src="../assets/site.js" defer></script>
+</body>
+</html>

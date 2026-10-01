@@ -1,0 +1,64 @@
+<!--meta
+title: Premature Epistemic Action — Saurav Sharma
+description: Research summary on timing information acquisition with endogenous consequences.
+nav: research
+ogtype: article
+-->
+<section class="page-hero"><div class="wrap">
+<nav class="crumbs" aria-label="Breadcrumb"><a href="{{root}}index.html">Home</a><span aria-hidden="true">/</span><a href="index.html">Research</a><span aria-hidden="true">/</span><span>Premature Epistemic Action</span></nav>
+<div class="ph-grid">
+<div><div class="eyebrow" data-reveal>R.01 · Sequential decision-making</div><h1 data-split>Premature Epistemic Action</h1><p class="lede" data-reveal style="--rd:.3s">Information can be valuable and still be harmful to acquire now when acquisition changes the future decision problem.</p>{{artifacts:rec}}</div>
+<div class="factsheet" data-reveal style="--rd:.4s"><dl>
+<div><dt>Status</dt><dd><span class="status">Research manuscript · 2026</span></dd></div>
+<div><dt>Area</dt><dd>Sequential decision-making</dd></div>
+<div><dt>Evidence</dt><dd><ul class="tags"><li class="tag">frozen diagnostic</li><li class="tag">ablations</li><li class="tag">offline artifact</li><li class="tag neg">negative result</li></ul></dd></div>
+<div><dt>Artifact</dt><dd>Paper-scoped offline artifact</dd></div>
+</dl></div>
+</div>
+<figure class="figure fig-wrap" data-reveal>
+<div class="figure-head"><span>Fig. 1 — Whether versus when to acquire information</span><span class="live">Schematic</span></div>
+<div class="figure-body">{{fig:rec}}</div>
+<figcaption><b>Schematic</b>Acquiring information can itself change future task dynamics, constraints, costs, or feasible actions. The decision is therefore not only whether to acquire information, but when. Illustrative, not experimental data.</figcaption>
+</figure>
+</div></section>
+
+<div class="wrap article">
+<aside class="toc" aria-label="On this page"><span class="mono">On this page</span><ol>
+<li><a href="#question">Question</a></li><li><a href="#results">Selected results</a></li><li><a href="#design">Experimental design</a></li><li><a href="#attack">Strongest attack</a></li><li><a href="#covers">What the evidence covers</a></li><li><a href="#open">What it does not establish</a></li><li><a href="#status">Artifact status</a></li></ol></aside>
+<div class="prose">
+<section id="question" data-reveal><span class="sec-label">01 · Question</span><h2>Whether, and when.</h2>
+<p>Most information-acquisition models ask whether information is worth its informational value and cost. This project studies a different case: acquiring information can itself change future task dynamics, constraints, costs, or feasible actions. The decision is therefore not only whether to acquire information, but when.</p></section>
+
+<section id="results"><span class="sec-label">02 · Selected results</span><h2>Frozen diagnostic and ablations.</h2>
+<div class="evidence">
+<x-ev ctx="Frozen diagnostic · full REC" value="15/15" label="full REC exact action match on the frozen diagnostic"></x-ev>
+<x-ev ctx="Ablation · prospective timing removed" value="0/6" label="pre-boundary accuracy after removing prospective timing"></x-ev>
+<x-ev ctx="Ablation · consequence modeling removed" value="0/6" label="pre-boundary accuracy after removing consequence modeling"></x-ev>
+<x-ev ctx="Generic exact depth-3 planning" value="27/27" neg="1" label="small worlds solved by generic exact depth-3 planning"></x-ev>
+</div></section>
+
+<section id="design" data-reveal><span class="sec-label">03 · Experimental design</span><h2>Core diagnostic.</h2>
+<p>The frozen diagnostic contains 15 decision states spanning pre-boundary states, true probe-boundary states, and high-consequence no-probe controls. The tested frontier model remains correct on the actual probe boundary and high-consequence controls while repeatedly probing too early before the boundary.</p></section>
+
+<section id="attack" data-reveal><span class="sec-label">04 · Strongest attack · negative result</span><h2>Why the negative result matters.</h2>
+<p>Exact depth-3 expectimax solves all 27 tested small worlds. I therefore do not claim REC as a new generic planning primitive.</p>
+<div class="callout"><strong>Retained explicitly in the reproduction package.</strong> No generic-planner novelty claim.</div></section>
+
+<section id="covers" data-reveal><span class="sec-label">05 · What the evidence covers</span><h2>A narrower contribution.</h2>
+<p>The paper's narrower contribution is the explicit immediate-versus-delayed epistemic-action interface, propagation of endogenous consequences, and selective verification.</p>
+<p>Evidence: frozen 15-state diagnostic; full REC 15/15; principal timing/consequence ablations collapse pre-boundary performance.</p></section>
+
+<section id="open" data-reveal><span class="sec-label">06 · What it does not establish</span><h2>What remains open.</h2>
+<div class="limits"><span class="mono">Boundary</span><p>Independent external reproduction, cross-model frontier replication, real transaction-level validation, and broad non-economic generalization are not yet established.</p></div></section>
+
+<section id="status" data-reveal><span class="sec-label">07 · Evidence &amp; artifact status</span><h2>Reproducibility.</h2>
+<p>The paper-scoped offline artifact includes frozen worlds and queries, evaluator gold, prompt constructors and hashes, raw frontier responses, scorers, the REC reference implementation, principal ablations, support checks, deterministic holdout reproduction, the generic-planning negative result, SHA-256 manifests, and a top-level verification script.</p>
+<div class="code-line">python verify_all.py</div>
+<div class="status-grid">
+<div><span class="mono">Internally reproducible</span><p>Offline paper-scoped artifact with raw outputs, hashes, evaluator, reference implementation, and verification scripts.</p></div>
+<div><span class="mono">Independently reproduced</span><p>Not yet established.</p></div>
+<div><span class="mono">Status</span><p>Research manuscript · 2026.</p></div>
+</div>{{artifacts:rec}}</section>
+</div></div>
+
+<div class="wrap"><nav class="pager" aria-label="Project navigation"><a href="index.html"><span class="mono">← Back to research</span><span class="t">All research</span></a><a href="microstructure.html"><span class="mono">Next · R.02</span><span class="t">When Information Acquisition Moves the Market</span></a></nav></div>

@@ -1,0 +1,71 @@
+<!--meta
+title: When Model Error Moves the Boundary — Saurav Sharma
+description: Research summary on decision-critical feasibility-boundary misspecification in private-credit decision systems.
+nav: research
+ogtype: article
+-->
+<section class="page-hero"><div class="wrap">
+<nav class="crumbs" aria-label="Breadcrumb"><a href="{{root}}index.html">Home</a><span aria-hidden="true">/</span><a href="index.html">Research</a><span aria-hidden="true">/</span><span>Private Credit</span></nav>
+<div class="ph-grid">
+<div><div class="eyebrow" data-reveal>R.03 · Financial AI · private credit</div><h1 data-split>When Model Error Moves the Boundary</h1><p class="lede" data-reveal style="--rd:.3s">Model error becomes decision-critical when it moves a financial feasibility boundary actually reached by the optimized policy.</p>{{artifacts:private-credit}}</div>
+<div class="factsheet" data-reveal style="--rd:.4s"><dl>
+<div><dt>Status</dt><dd><span class="status">Research manuscript · 2026</span></dd></div>
+<div><dt>Area</dt><dd>Financial AI · private credit</dd></div>
+<div><dt>Evidence</dt><dd><ul class="tags"><li class="tag">pre-specified holdout</li><li class="tag">negative control</li><li class="tag">balanced follow-up</li></ul></dd></div>
+<div><dt>Design</dt><dd>Prospective frozen holdout and separate balanced robustness study</dd></div>
+</dl></div>
+</div>
+<figure class="figure fig-wrap" data-reveal>
+<div class="figure-head"><span>Fig. 3 — An omitted mechanism moves a reached constraint</span><span class="live">Schematic</span></div>
+<div class="figure-body">{{fig:credit}}</div>
+<figcaption><b>Schematic</b>An optimizer can be exact for its encoded model and still select an infeasible action when an omitted stress mechanism changes a reached constraint. Illustrative, not experimental data.</figcaption>
+</figure>
+</div></section>
+
+<div class="wrap article">
+<aside class="toc" aria-label="On this page"><span class="mono">On this page</span><ol>
+<li><a href="#question">Question</a></li><li><a href="#results">Selected results</a></li><li><a href="#design">Experimental design</a></li><li><a href="#attack">Negative control</a></li><li><a href="#followup">Balanced follow-up</a></li><li><a href="#covers">What the evidence covers</a></li><li><a href="#open">What it does not establish</a></li><li><a href="#status">Artifact status</a></li></ol></aside>
+<div class="prose">
+<section id="question" data-reveal><span class="sec-label">01 · Question</span><h2>A representation-to-decision failure.</h2>
+<p>Private-credit decision systems may optimize against encoded liquidity and contractual constraints. This study isolates a representation-to-decision failure: an optimizer can be exact for its encoded model and still select an infeasible action when an omitted stress mechanism changes a reached constraint.</p></section>
+
+<section id="results"><span class="sec-label">02 · Selected results · original prospective holdout</span><h2>Frozen 20-world holdout.</h2>
+<div class="evidence">
+<x-ev ctx="15-unit working-capital shock" value="14/20" label="nominal-plan constraint failures under the 15-unit working-capital shock"></x-ev>
+<x-ev ctx="Same worlds · stressed optimum" value="0/20" label="true stressed-optimum failures in the same worlds"></x-ev>
+<x-ev ctx="Omitted mechanism" value="51.3%" label="mean normalized achievable value under the omitted mechanism"></x-ev>
+</div></section>
+
+<section id="design" data-reveal><span class="sec-label">03 · Experimental design</span><h2>Original prospective holdout.</h2>
+<p>After development, the environment, deterministic seed rule, analysis, primary criteria, and bootstrap procedure were fixed before evaluating the fresh holdout. A designed line-cut control removed a revolver that the selected nominal recession path did not use. The boundary-moving treatment instead introduced an omitted working-capital drain.</p></section>
+
+<section id="attack"><span class="sec-label">04 · Strongest control</span><h2>The designed line-cut control.</h2>
+<p data-reveal>A designed line-cut control removed a revolver that the selected nominal recession path did not use.</p>
+<div class="evidence"><x-ev ctx="Designed line-cut control" value="0/20" neg="1" label="failures under the designed line-cut control"></x-ev></div></section>
+
+<section id="followup"><span class="sec-label">05 · Separate balanced follow-up</span><h2>Two constraint families.</h2>
+<p data-reveal>Because the original 20-world holdout contained 19 minimum-cash worlds and only one leverage-style world, a separate source-anchored follow-up was frozen before its intervention outcomes were computed. It tests 20 fresh worlds per constraint family across a pre-specified 5/10/15/20-unit shock grid.</p>
+<p data-reveal>At the 15-unit shock, failures are 14/20 for minimum-cash worlds and 17/20 for leverage-style worlds, while the exact stressed optimum remains feasible in all 40.</p>
+<div class="evidence">
+<x-ev ctx="Follow-up · 15-unit shock · minimum-cash" value="14/20" label="failures for minimum-cash worlds"></x-ev>
+<x-ev ctx="Follow-up · 15-unit shock · leverage-style" value="17/20" label="failures for leverage-style worlds"></x-ev>
+<x-ev ctx="Follow-up · exact stressed optimum" value="40/40" label="worlds in which the exact stressed optimum remains feasible"></x-ev>
+</div></section>
+
+<section id="covers" data-reveal><span class="sec-label">06 · What the evidence covers</span><h2>Scope of the evidence.</h2>
+<p>Frozen 20-world holdout; line-cut control; 14/20 failures under omitted working-capital mechanism; stressed optimum feasible 20/20.</p>
+<h3 style="margin:28px 0 12px">Integrity boundary</h3>
+<p>The follow-up is not represented as hash-continuous confirmation of the original v1 archive because the exact original archive was unavailable for byte-for-byte comparison. It is reported separately as robustness evidence.</p></section>
+
+<section id="open" data-reveal><span class="sec-label">07 · What it does not establish</span><h2>Not a prevalence estimate.</h2>
+<div class="limits"><span class="mono">Boundary</span><p>The environments are synthetic near-boundary mechanism tests. They do not estimate prevalence in deployed private-credit systems and omit many institutional features such as amendments, cure rights, lender discretion, sponsor support, and renegotiation.</p></div></section>
+
+<section id="status" data-reveal><span class="sec-label">08 · Evidence &amp; artifact status</span><h2>Artifact status.</h2>
+<div class="status-grid">
+<div><span class="mono">Reproducibility</span><p>Pre-specified holdout plus separately frozen, source-anchored 40-world follow-up.</p></div>
+<div><span class="mono">Boundary</span><p>Original/follow-up are not hash-continuous; synthetic environment; no deployed-system prevalence claim.</p></div>
+<div><span class="mono">Artifacts</span><p>Finance reproduction packages can be published as separate safe repositories.</p></div>
+</div>{{artifacts:private-credit}}</section>
+</div></div>
+
+<div class="wrap"><nav class="pager" aria-label="Project navigation"><a href="microstructure.html"><span class="mono">← Previous · R.02</span><span class="t">When Information Acquisition Moves the Market</span></a><a href="aei.html"><span class="mono">Next · Program</span><span class="t">Autonomous Economic Intelligence</span></a></nav></div>

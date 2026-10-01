@@ -1,0 +1,25 @@
+{
+  "_help": "Central site configuration. Fill in ONLY verified public values, then run: python3 tools/build.py. Empty string = placeholder (contact rows are hidden; artifact buttons render disabled as 'Link pending').",
+  "site_url": "https://saurav0369.github.io",
+  "base_path": "/",
+  "contact": {
+    "github": "https://github.com/saurav0369",
+    "email": "mailto:sauravsharma0369@gmail.com",
+    "linkedin": "",
+    "arxiv": ""
+  },
+  "artifacts": {
+    "rec": {
+      "evidence": "",
+      "code": ""
+    },
+    "microstructure": {
+      "evidence": "",
+      "code": ""
+    },
+    "private-credit": {
+      "evidence": "",
+      "code": ""
+    }
+  }
+}

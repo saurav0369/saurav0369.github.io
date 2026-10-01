@@ -1,0 +1,39 @@
+<!--meta
+title: Evidence & Reproducibility — Saurav Sharma
+description: Evidence ledger, reproducibility status, negative results, and limits of the research program.
+nav: evidence
+-->
+<section class="page-hero"><div class="wrap">
+<div class="eyebrow" data-reveal>Evidence &amp; reproducibility</div>
+<h1 data-split style="max-width:22ch">What is demonstrated, what is internally reproducible, and what remains open.</h1>
+<p class="lede" data-reveal style="--rd:.3s">The goal is to make the evidence boundary easier to inspect than the narrative.</p>
+</div></section>
+<section class="section"><div class="wrap">
+<div class="sec-head"><div data-reveal><span class="sec-num">01 — Ledger</span><h2>Evidence ledger.</h2></div><p data-reveal style="--rd:.1s"><code class="mono" style="text-transform:none">internally reproducible</code> is not <code class="mono" style="text-transform:none">independently reproduced</code>. Retained negative results are listed alongside positive ones.</p></div>
+<table class="ledger" data-reveal>
+<thead><tr><th>Question</th><th>Evidence</th><th>Reproducibility status</th><th>Boundary</th></tr></thead>
+<tbody>
+<tr><td data-h="Question"><span class="pill">R.01</span><br><a href="research/rec.html">Can information acquisition be premature?</a></td><td data-h="Evidence">Frozen 15-state diagnostic; full REC 15/15; principal timing/consequence ablations collapse pre-boundary performance.</td><td data-h="Reproducibility status">Offline paper-scoped artifact with raw outputs, hashes, evaluator, reference implementation, and verification scripts.</td><td data-h="Boundary">Independent external reproduction and broad real-world prevalence are not yet established.</td></tr>
+<tr><td data-h="Question"><span class="pill">R.02</span><br><a href="research/microstructure.html">Can passive value-of-information choose the wrong RFQ policy?</a></td><td data-h="Evidence">Formal representability boundary; 10,080 heterogeneous tests; fresh 5,000-world IID holdout; mechanism controls and shifts.</td><td data-h="Reproducibility status">Exact enumeration; separated discovery/holdout seeds; frozen holdout ranges.</td><td data-h="Boundary">Stylized mechanism test, not an empirical estimate of real RFQ leakage frequency.</td></tr>
+<tr><td data-h="Question"><span class="pill">R.03</span><br><a href="research/private-credit.html">When does private-credit model error become decision-critical?</a></td><td data-h="Evidence">Frozen 20-world holdout; line-cut control; 14/20 failures under omitted working-capital mechanism; stressed optimum feasible 20/20.</td><td data-h="Reproducibility status">Pre-specified holdout plus separately frozen, source-anchored 40-world follow-up.</td><td data-h="Boundary">Original/follow-up are not hash-continuous; synthetic environment; no deployed-system prevalence claim.</td></tr>
+<tr><td data-h="Question"><span class="pill neg">Negative result</span><br><a href="research/rec.html#attack">Is REC a new generic planning primitive?</a></td><td data-h="Evidence">Negative result: exact depth-3 expectimax solves 27/27 small worlds.</td><td data-h="Reproducibility status">Retained explicitly in the reproduction package.</td><td data-h="Boundary">No generic-planner novelty claim.</td></tr>
+<tr><td data-h="Question"><span class="pill">AEI</span><br><a href="research/aei.html">Does the broader AEI thesis generalize?</a></td><td data-h="Evidence">Multiple internal hidden-rule, rare-event, constraint, document, and adaptive-environment evaluations.</td><td data-h="Reproducibility status">Large private forensic archive with frozen specs, hashes, raw outputs, and reconstruction material.</td><td data-h="Boundary">External replication, externally specified worlds, and real-world validation remain decisive next tests.</td></tr>
+</tbody></table>
+</div></section>
+<section class="section"><div class="wrap">
+<div class="sec-head"><div data-reveal><span class="sec-num">02 — Research standards</span><h2>How claims are handled.</h2></div></div>
+<div class="principles">
+<div class="principle" data-reveal><span class="mono">S.1</span><h3>Freeze before confirmatory evaluation</h3><p>Where a result is treated as prospective evidence, the environment, seed rule, analysis, or evaluation criteria are fixed before the corresponding holdout is run.</p></div>
+<div class="principle" data-reveal style="--rd:.08s"><span class="mono">S.2</span><h3>Keep negative evidence</h3><p>Generic-planner successes, oracle contamination, non-identifiability, failed controls, and null results are retained rather than silently dropped.</p></div>
+<div class="principle" data-reveal style="--rd:.16s"><span class="mono">S.3</span><h3>Separate discovery from confirmation</h3><p>Development worlds and post-hoc follow-ups are not relabeled as prospective confirmation.</p></div>
+<div class="principle" data-reveal style="--rd:.24s"><span class="mono">S.4</span><h3>State external-validity limits</h3><p>Synthetic mechanism tests are not presented as prevalence estimates for deployed systems.</p></div>
+</div>
+</div></section>
+<section class="section"><div class="wrap">
+<div class="sec-head"><div data-reveal><span class="sec-num">03 — Artifacts</span><h2>Public, paper-scoped, and private layers.</h2></div></div>
+<div class="layers" data-reveal>
+<div><span class="mono">Layer 1</span><h3>Public</h3><p>Research summaries, selected evidence, neutral manuscript metadata, and safe research notes.</p></div>
+<div><span class="mono">Layer 2</span><h3>Paper-scoped</h3><p>REC paper-scoped offline artifact; finance reproduction packages can be published as separate safe repositories.</p></div>
+<div><span class="mono" style="color:var(--accent)">Layer 3 · not disclosed</span><h3>Private</h3><p>Full AEI architecture, reconstruction-grade implementation details, complete internal evaluation suite, and successor design.</p></div>
+</div>
+</div></section>

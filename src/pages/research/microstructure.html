@@ -1,0 +1,64 @@
+<!--meta
+title: When Information Acquisition Moves the Market — Saurav Sharma
+description: Research summary on endogenous value of information in RFQ execution.
+nav: research
+ogtype: article
+-->
+<section class="page-hero"><div class="wrap">
+<nav class="crumbs" aria-label="Breadcrumb"><a href="{{root}}index.html">Home</a><span aria-hidden="true">/</span><a href="index.html">Research</a><span aria-hidden="true">/</span><span>Market Microstructure</span></nav>
+<div class="ph-grid">
+<div><div class="eyebrow" data-reveal>R.02 · Financial AI · market microstructure</div><h1 data-split>When Information Acquisition Moves the Market</h1><p class="lede" data-reveal style="--rd:.3s">An inquiry can improve information while changing the execution problem in which that information will be used.</p>{{artifacts:microstructure}}</div>
+<div class="factsheet" data-reveal style="--rd:.4s"><dl>
+<div><dt>Status</dt><dd><span class="status">Research manuscript · 2026</span></dd></div>
+<div><dt>Area</dt><dd>Financial AI · market microstructure</dd></div>
+<div><dt>Evidence</dt><dd><ul class="tags"><li class="tag">formal boundary</li><li class="tag">exact enumeration</li><li class="tag">5,000-world holdout</li></ul></dd></div>
+<div><dt>Method</dt><dd>Exact finite-state experiments and fresh holdout</dd></div>
+</dl></div>
+</div>
+<figure class="figure fig-wrap" data-reveal>
+<div class="figure-head"><span>Fig. 2 — Inquiry as an intervention in RFQ execution</span><span class="live">Schematic</span></div>
+<div class="figure-body">{{fig:micro}}</div>
+<figcaption><b>Schematic</b>In dealer markets, requesting another quote can reveal intent or alter dealer response. A routing change is a direct policy-level certificate that the passive and endogenous formulations are not equivalent. Illustrative, not experimental data.</figcaption>
+</figure>
+</div></section>
+
+<div class="wrap article">
+<aside class="toc" aria-label="On this page"><span class="mono">On this page</span><ol>
+<li><a href="#question">Question</a></li><li><a href="#idea">Core idea</a></li><li><a href="#results">Selected results</a></li><li><a href="#design">Experimental design</a></li><li><a href="#attack">Mechanism controls</a></li><li><a href="#covers">What the evidence covers</a></li><li><a href="#open">What it does not establish</a></li><li><a href="#status">Artifact status</a></li></ol></aside>
+<div class="prose">
+<section id="question" data-reveal><span class="sec-label">01 · Question</span><h2>When does passive valuation choose wrong?</h2>
+<p>A passive value-of-information calculation holds downstream execution fixed. In dealer markets, requesting another quote can reveal intent or alter dealer response. The work asks when passive information valuation therefore chooses the wrong inquiry or routing policy.</p></section>
+
+<section id="idea" data-reveal><span class="sec-label">02 · Core idea · formal boundary</span><h2>Sensing versus acquisition.</h2>
+<p>The analysis distinguishes an observation-only scalar sensing adjustment from an acquisition action that changes downstream action values. Exact scalar representation is possible only when the inquiry-induced perturbation is constant across downstream actions for a realized observation. A routing change is a direct policy-level certificate that the passive and endogenous formulations are not equivalent.</p></section>
+
+<section id="results"><span class="sec-label">03 · Selected results</span><h2>Exact enumeration, fresh holdout.</h2>
+<div class="evidence">
+<x-ev ctx="Heterogeneous targeted-RFQ tests" value="10,080" label="heterogeneous targeted-RFQ environments"></x-ev>
+<x-ev ctx="Fresh IID holdout" value="5,000" label="fresh IID holdout environments"></x-ev>
+<x-ev ctx="Fresh holdout · inquiry breadth" value="83.2%" label="inquiry-breadth mismatch on the fresh holdout"></x-ev>
+<x-ev ctx="Common-response mechanism control" value="0.0%" neg="1" label="routing mismatch under the common-response mechanism control"></x-ev>
+</div></section>
+
+<section id="design" data-reveal><span class="sec-label">04 · Experimental design</span><h2>Exact experiments.</h2>
+<p>Finite decision problems are solved by exact enumeration. The empirical component uses heterogeneous parameterized environments, exact 3–5 dealer extensions, a fresh 5,000-environment IID holdout, and predefined distribution shifts without changing the solver.</p>
+<p>Exact enumeration; separated discovery/holdout seeds; frozen holdout ranges.</p></section>
+
+<section id="attack" data-reveal><span class="sec-label">05 · Strongest control</span><h2>Mechanism diagnostics.</h2>
+<p>Making the inquiry response common across dealers removes routing mismatch. Restricting response intensity to a weak-response regime materially reduces breadth mismatch, while larger orders or shallower liquidity amplify it. This directionality is more informative than a raw average gap.</p></section>
+
+<section id="covers" data-reveal><span class="sec-label">06 · What the evidence covers</span><h2>Scope of the evidence.</h2>
+<p>Formal representability boundary; 10,080 heterogeneous tests; fresh 5,000-world IID holdout; mechanism controls and shifts.</p></section>
+
+<section id="open" data-reveal><span class="sec-label">07 · What it does not establish</span><h2>Not a frequency estimate.</h2>
+<div class="limits"><span class="mono">Boundary</span><p>The percentages are not estimates of real-market RFQ frequencies. The model is intentionally stylized and does not solve a full strategic multi-dealer equilibrium or calibrate to proprietary transaction data.</p></div></section>
+
+<section id="status" data-reveal><span class="sec-label">08 · Evidence &amp; artifact status</span><h2>Artifact status.</h2>
+<div class="status-grid">
+<div><span class="mono">Reproducibility</span><p>Exact enumeration; separated discovery/holdout seeds; frozen holdout ranges.</p></div>
+<div><span class="mono">Boundary</span><p>Stylized mechanism test, not an empirical estimate of real RFQ leakage frequency.</p></div>
+<div><span class="mono">Disclosure</span><p>Public artifacts can expose the exact mechanism test without exposing the private AEI architecture.</p></div>
+</div>{{artifacts:microstructure}}</section>
+</div></div>
+
+<div class="wrap"><nav class="pager" aria-label="Project navigation"><a href="rec.html"><span class="mono">← Previous · R.01</span><span class="t">Premature Epistemic Action</span></a><a href="private-credit.html"><span class="mono">Next · R.03</span><span class="t">When Model Error Moves the Boundary</span></a></nav></div>

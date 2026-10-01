@@ -1,0 +1,38 @@
+<!--meta
+title: Why Prediction Is Not Enough for Decisions Under Hidden Rules — Saurav Sharma
+description: Research note on prediction, mechanism identification, consequential information acquisition, and decision reliability.
+nav: writing
+ogtype: article
+-->
+<div class="wrap">
+<article class="essay">
+<nav class="crumbs" aria-label="Breadcrumb"><a href="{{root}}index.html">Home</a><span aria-hidden="true">/</span><a href="index.html">Writing</a><span aria-hidden="true">/</span><span>Why Prediction Is Not Enough</span></nav>
+<div class="eyebrow" data-reveal>Research note</div>
+<h1 data-split>Why Prediction Is Not Enough for Decisions Under Hidden Rules</h1>
+<p class="lede" data-reveal style="--rd:.3s">A system can be excellent at predicting outcomes inside the wrong model of the world. In consequential decisions, that distinction matters.</p>
+<div class="byline"><span>Saurav Sharma</span><span>Research note · 2026</span></div>
+<p class="dropcap">I started from a practical problem: build agents that make economic decisions rather than merely describe them. The first surprise was that better model reasoning did not reliably remove the failures I cared about. In some environments, a system could explain the relevant rule once it was made explicit and still fail when it had to determine which rule governed the decision before acting.</p>
+<p>That pushed the research away from a simple “make the model smarter” framing. The recurring issue looked more structural. A decision can depend on at least four different questions: what the current state is, which mechanism governs its evolution, whether the available evidence supports that mechanism in the region the plan will visit, and what happens in rare or adversarial states that average-case prediction barely sees.</p>
+<h2>Prediction and identification are different operations</h2>
+<p>Suppose two economic mechanisms generate similar observations over the data seen so far but imply different feasible actions once a covenant, cash threshold, or rare transition becomes active. A predictor can fit the observed outcomes well without resolving the distinction that actually controls the decision. More samples help only if they contain information that separates the mechanisms.</p>
+<figure class="figure" data-reveal style="margin:36px 0">
+<div class="figure-head"><span>Fig. — Prediction vs. identification</span><span class="live">Schematic</span></div>
+<div class="figure-body">{{fig:hero}}</div>
+<figcaption><b>Schematic</b>Two mechanisms agree on the data seen so far and diverge where the action is taken. Illustrative, not experimental data.</figcaption>
+</figure>
+<p>This is why some controlled hidden-rule experiments remained difficult for outcome learners even when the rule-conditioned action itself was easy. Once the governing rule was revealed, the comparison model often knew what to do. The failure occurred earlier: identifying which structure should govern the action.</p>
+<h2>Information acquisition can change the world</h2>
+<p>The same distinction appears in a different form when an agent seeks more information. A standard abstraction treats sensing as something that improves the belief state, perhaps at a cost. But in many economic systems an inquiry is an intervention. Requesting a quote can reveal intent. Asking a counterparty a question can change behavior. A diagnostic action can consume a resource or remove a later option.</p>
+<p>Then “more information” is not a free refinement of the same decision problem. The acquisition action can create a new decision problem. That motivates the work on <a class="inline-link" href="{{root}}research/rec.html">premature epistemic action</a> and <a class="inline-link" href="{{root}}research/microstructure.html">endogenous value of information</a>.</p>
+<h2>Constraint geometry matters more than average model error</h2>
+<p><a class="inline-link" href="{{root}}research/private-credit.html">Private-credit stress tests</a> produced another version of the same lesson. A model can be imperfect in many ways without changing the decision. The error becomes critical when it moves a boundary the chosen policy actually reaches. The interesting quantity is therefore not generic model error but whether the error changes the feasible set along the policy trajectory.</p>
+<h2>Rare events create a related evaluation problem</h2>
+<p>Average-case performance can hide the regimes that dominate economic value. As catastrophic transitions become rarer, an outcome learner may see less direct evidence of the event even while the structural consequence remains decisive.</p>
+<h2>What I currently believe</h2>
+<p>I do not think the evidence justifies a sweeping claim that prediction is unimportant or that one architecture solves decision-making generally. The narrower thesis is that some consequential decision problems require explicit work above prediction: identifying governing structure, establishing support, stress-testing relevant regimes, planning under the resulting model, and verifying execution against the authoritative environment.</p>
+<p>That thesis connects the current research lines. Premature epistemic action studies when an information-seeking action should be delayed. The RFQ work studies when passive value-of-information is the wrong abstraction because inquiry changes downstream values. The private-credit work studies when representation error becomes consequential because it moves a reached feasibility boundary. The broader <a class="inline-link" href="{{root}}research/aei.html">AEI program</a> asks whether these recurring patterns can be turned into a more reliable decision architecture.</p>
+<h2>What would change my mind</h2>
+<p>The strongest next evidence would not be another hand-designed success. It would be an externally specified evaluation where the governing mechanisms, world families, and scoring are fixed independently, then tested across model providers and with enough real or semi-real structure to make overfitting difficult. If a simpler predictive or generic planning baseline matches the structural methods under those conditions, the broader architectural thesis should shrink accordingly.</p>
+<nav class="pager" aria-label="Writing navigation" style="margin-top:56px"><a href="index.html"><span class="mono">← All notes</span><span class="t">Research notes</span></a><a href="{{root}}evidence.html"><span class="mono">Related</span><span class="t">Evidence ledger</span></a></nav>
+</article>
+</div>

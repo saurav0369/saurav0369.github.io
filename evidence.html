@@ -1,0 +1,99 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Evidence &amp; Reproducibility — Saurav Sharma</title>
+<meta name="description" content="Evidence ledger, reproducibility status, negative results, and limits of the research program.">
+<meta name="author" content="Saurav Sharma">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="Saurav Sharma — Independent Researcher">
+<meta property="og:title" content="Evidence &amp; Reproducibility — Saurav Sharma">
+<meta property="og:description" content="Evidence ledger, reproducibility status, negative results, and limits of the research program.">
+<meta property="og:image" content="https://saurav0369.github.io/assets/og.png">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta property="og:locale" content="en_US">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Evidence &amp; Reproducibility — Saurav Sharma">
+<meta name="twitter:description" content="Evidence ledger, reproducibility status, negative results, and limits of the research program.">
+<meta name="twitter:image" content="https://saurav0369.github.io/assets/og.png">
+
+<link rel="canonical" href="https://saurav0369.github.io/evidence.html"><meta property="og:url" content="https://saurav0369.github.io/evidence.html">
+<meta name="theme-color" content="#f4f2ed" media="(prefers-color-scheme: light)">
+<meta name="theme-color" content="#0c0d0f" media="(prefers-color-scheme: dark)">
+<link rel="icon" href="assets/favicon.svg" type="image/svg+xml">
+<link rel="preload" href="assets/fonts/newsreader-latin-opsz-normal.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="preload" href="assets/fonts/inter-latin-opsz-normal.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="stylesheet" href="assets/styles.css">
+<script>(function(){try{var t=localStorage.getItem('theme');if(!t)t=matchMedia('(prefers-color-scheme: dark)').matches?'dark':'light';document.documentElement.dataset.theme=t}catch(e){}})();</script>
+</head>
+<body>
+<a class="skip" href="#main">Skip to content</a>
+<div class="progress" aria-hidden="true"></div>
+<header class="site-header">
+<div class="wrap nav">
+<a class="brand" href="index.html"><span class="brand-name">Saurav Sharma</span><span class="brand-role">Independent Researcher</span></a>
+<nav class="nav-links" id="nav-links" aria-label="Primary"><a href="research/index.html">Research</a><a href="manuscripts.html">Manuscripts</a><a href="evidence.html" aria-current="page">Evidence</a><a href="writing/index.html">Writing</a><a href="about.html">About</a></nav>
+<div class="nav-tools">
+<button class="icon-btn" type="button" data-theme-toggle aria-label="Toggle dark theme"><svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.4"><circle cx="8" cy="8" r="5.5"/><path d="M8 2.5a5.5 5.5 0 0 0 0 11z" fill="currentColor"/></svg></button>
+<button class="icon-btn menu-btn" type="button" data-menu aria-expanded="false" aria-controls="nav-links" aria-label="Menu"><svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.4"><path d="M2 5h12M2 11h12"/></svg></button>
+</div>
+</div>
+</header>
+<main id="main">
+<section class="page-hero"><div class="wrap">
+<div class="eyebrow" data-reveal>Evidence &amp; reproducibility</div>
+<h1 data-split style="max-width:22ch">What is demonstrated, what is internally reproducible, and what remains open.</h1>
+<p class="lede" data-reveal style="--rd:.3s">The goal is to make the evidence boundary easier to inspect than the narrative.</p>
+</div></section>
+<section class="section"><div class="wrap">
+<div class="sec-head"><div data-reveal><span class="sec-num">01 — Ledger</span><h2>Evidence ledger.</h2></div><p data-reveal style="--rd:.1s"><code class="mono" style="text-transform:none">internally reproducible</code> is not <code class="mono" style="text-transform:none">independently reproduced</code>. Retained negative results are listed alongside positive ones.</p></div>
+<table class="ledger" data-reveal>
+<thead><tr><th>Question</th><th>Evidence</th><th>Reproducibility status</th><th>Boundary</th></tr></thead>
+<tbody>
+<tr><td data-h="Question"><span class="pill">R.01</span><br><a href="research/rec.html">Can information acquisition be premature?</a></td><td data-h="Evidence">Frozen 15-state diagnostic; full REC 15/15; principal timing/consequence ablations collapse pre-boundary performance.</td><td data-h="Reproducibility status">Offline paper-scoped artifact with raw outputs, hashes, evaluator, reference implementation, and verification scripts.</td><td data-h="Boundary">Independent external reproduction and broad real-world prevalence are not yet established.</td></tr>
+<tr><td data-h="Question"><span class="pill">R.02</span><br><a href="research/microstructure.html">Can passive value-of-information choose the wrong RFQ policy?</a></td><td data-h="Evidence">Formal representability boundary; 10,080 heterogeneous tests; fresh 5,000-world IID holdout; mechanism controls and shifts.</td><td data-h="Reproducibility status">Exact enumeration; separated discovery/holdout seeds; frozen holdout ranges.</td><td data-h="Boundary">Stylized mechanism test, not an empirical estimate of real RFQ leakage frequency.</td></tr>
+<tr><td data-h="Question"><span class="pill">R.03</span><br><a href="research/private-credit.html">When does private-credit model error become decision-critical?</a></td><td data-h="Evidence">Frozen 20-world holdout; line-cut control; 14/20 failures under omitted working-capital mechanism; stressed optimum feasible 20/20.</td><td data-h="Reproducibility status">Pre-specified holdout plus separately frozen, source-anchored 40-world follow-up.</td><td data-h="Boundary">Original/follow-up are not hash-continuous; synthetic environment; no deployed-system prevalence claim.</td></tr>
+<tr><td data-h="Question"><span class="pill neg">Negative result</span><br><a href="research/rec.html#attack">Is REC a new generic planning primitive?</a></td><td data-h="Evidence">Negative result: exact depth-3 expectimax solves 27/27 small worlds.</td><td data-h="Reproducibility status">Retained explicitly in the reproduction package.</td><td data-h="Boundary">No generic-planner novelty claim.</td></tr>
+<tr><td data-h="Question"><span class="pill">AEI</span><br><a href="research/aei.html">Does the broader AEI thesis generalize?</a></td><td data-h="Evidence">Multiple internal hidden-rule, rare-event, constraint, document, and adaptive-environment evaluations.</td><td data-h="Reproducibility status">Large private forensic archive with frozen specs, hashes, raw outputs, and reconstruction material.</td><td data-h="Boundary">External replication, externally specified worlds, and real-world validation remain decisive next tests.</td></tr>
+</tbody></table>
+</div></section>
+<section class="section"><div class="wrap">
+<div class="sec-head"><div data-reveal><span class="sec-num">02 — Research standards</span><h2>How claims are handled.</h2></div></div>
+<div class="principles">
+<div class="principle" data-reveal><span class="mono">S.1</span><h3>Freeze before confirmatory evaluation</h3><p>Where a result is treated as prospective evidence, the environment, seed rule, analysis, or evaluation criteria are fixed before the corresponding holdout is run.</p></div>
+<div class="principle" data-reveal style="--rd:.08s"><span class="mono">S.2</span><h3>Keep negative evidence</h3><p>Generic-planner successes, oracle contamination, non-identifiability, failed controls, and null results are retained rather than silently dropped.</p></div>
+<div class="principle" data-reveal style="--rd:.16s"><span class="mono">S.3</span><h3>Separate discovery from confirmation</h3><p>Development worlds and post-hoc follow-ups are not relabeled as prospective confirmation.</p></div>
+<div class="principle" data-reveal style="--rd:.24s"><span class="mono">S.4</span><h3>State external-validity limits</h3><p>Synthetic mechanism tests are not presented as prevalence estimates for deployed systems.</p></div>
+</div>
+</div></section>
+<section class="section"><div class="wrap">
+<div class="sec-head"><div data-reveal><span class="sec-num">03 — Artifacts</span><h2>Public, paper-scoped, and private layers.</h2></div></div>
+<div class="layers" data-reveal>
+<div><span class="mono">Layer 1</span><h3>Public</h3><p>Research summaries, selected evidence, neutral manuscript metadata, and safe research notes.</p></div>
+<div><span class="mono">Layer 2</span><h3>Paper-scoped</h3><p>REC paper-scoped offline artifact; finance reproduction packages can be published as separate safe repositories.</p></div>
+<div><span class="mono" style="color:var(--accent)">Layer 3 · not disclosed</span><h3>Private</h3><p>Full AEI architecture, reconstruction-grade implementation details, complete internal evaluation suite, and successor design.</p></div>
+</div>
+</div></section>
+
+</main>
+<footer class="site-footer">
+<div class="wrap">
+<div class="footer-grid">
+<div><span class="brand-name">Saurav Sharma</span><p class="footer-note">Independent Researcher &amp; Technical Builder. Education: BS student, IIT Madras.</p></div>
+<div><span class="mono">Research</span><ul>
+<li><a href="research/rec.html">Premature Epistemic Action</a></li>
+<li><a href="research/microstructure.html">Information Acquisition &amp; the Market</a></li>
+<li><a href="research/private-credit.html">Model Error &amp; the Boundary</a></li>
+<li><a href="research/aei.html">Autonomous Economic Intelligence</a></li></ul></div>
+<div><span class="mono">Site</span><ul>
+<li><a href="manuscripts.html">Manuscripts</a></li><li><a href="evidence.html">Evidence ledger</a></li>
+<li><a href="writing/index.html">Writing</a></li><li><a href="about.html">About</a></li></ul></div>
+</div>
+<div class="footer-base"><span>© <span data-year>2026</span> Saurav Sharma</span><span>Independent research</span></div>
+</div>
+</footer>
+<script src="assets/site.js" defer></script>
+</body>
+</html>
